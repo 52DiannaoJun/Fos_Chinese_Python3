@@ -283,7 +283,7 @@ def Sys ():#系统配置函数
         print('')
     else:
         o = os.open('sys.ini',os.O_WRONLY|os.O_CREAT)
-        Name = 'FOS' + '\n' + '0.2'
+        Name = 'FOS' + '\n' + '1.0'
         O = os.write(o,bytes('%s' %(Name), 'UTF-8'))
         os.close(o)
         Sys()
@@ -291,11 +291,11 @@ def Sys ():#系统配置函数
     a = Name = next(o)
     a = r'%s' %(a)
     i = Name = next(o)
-    if(i != '0.2' or a != 'FOS'):
+    if(i != '1.0' or a != 'FOS'):
         os.remove('sys.ini')
         o.close
         o = os.open('sys.ini',os.O_WRONLY|os.O_CREAT)
-        Name = 'FOS' + '\n' + '0.2'
+        Name = 'FOS' + '\n' + '1.0'
         O = os.write(o,bytes('%s' %(Name), 'UTF-8'))
         os.close(o)
 def Rn ():#重命名函数
@@ -613,7 +613,7 @@ while b == 0 :
         print(FY(input('密文文件名：'),input('母版文件名：')))
     elif(c == 'Exit' or c == 'exit'):
         b = 1
-    elif(c == 'tree -0' or c == 'Tree'):
+    elif(c == 'xtree' or c == 'xTree'):
         k = os.getcwd()
         print('当前目录:',k)
         print('\n'*2,k)
@@ -739,7 +739,7 @@ while b == 0 :
         print(Oct(input('数:'),input('(十进制转八进制(0)十八进制转十进制(1))\n输入:')))
     elif(c == 'bin' or c == 'Bin'):
         print(Bin(input('数:'),input('(十进制转十二进制(0)二进制转十进制(1))\n输入:')))
-    elif(c == 'try' or c == 'tree -1'):
+    elif(c == 'try' or c == 'Try'):
         input('\033[32m')
         k = os.getcwd()
         treea(0)
