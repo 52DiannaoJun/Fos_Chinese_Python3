@@ -1,9 +1,9 @@
-# Fos_form_python
+# python_fos_chinese
 oh,my god!
 what is this?
 Fos?
 yes!
-it is the Files_Operating_System!
+it is Files_Operating_System！
 do you know the Fos!?
 oh,what?
 you do not?
