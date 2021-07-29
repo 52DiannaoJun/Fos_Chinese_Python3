@@ -9,7 +9,7 @@ import stat
 import glob
 import calendar
 import random
-import p
+import exp as p
 #导入模块
 k = open('logs.log','a+')
 g = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
