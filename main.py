@@ -8,47 +8,24 @@ import datetime
 import stat
 import glob
 import calendar
-import random
-import exp as p
+import p
 #导入模块
+
+print(os.getcwd())
 k = open('logs.log','a+')
 g = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 k.write('{\n    \"%s\"\n' %(g))
 k.write('\n')
-g = None
+g = '\n▄\n'
 k.close()
-y=[]
-A = 0
-b = 0
-i = 0
-true = True
-false = False
-null,none = None,None
-VAR = None
-LIS = {}
-#配置变量1
-if(input(''+
-    '\n\tLanguage = Chinese\tPlease open the.Utf-8\n'+
-    '\033[1;4;5;32;41m\tthe Fos say to you:'+
-    'if you are a tester,Then please enter "test".'+
-    '\t\n\tIf you are not a tester,Then please press the enter key.'+
-    '\t\n\t_\033[?25l\033[0;44m') != 'test'):
-    print('\033[0m\033[?25h')
-    for k in range(3):
-        for k in range(3) :
-            print('.',end='')
-            time.sleep(0.05)
-    print('[',end='')
-    for sio in range(8):
-        print('\033[102m    \033[0m ',end='',flush=True)
-        time.sleep(0.075)
-    print (']100%\n',flush=True)
-    time.sleep(1)
-    print(os.getcwd())
-    p.hi()
-else:
-    print('\033[0m\033[?25h')
-#输出
+for k in range(3):
+    for k in range(3) :
+        print(g)
+        time.sleep(0.05)
+    print()
+    time.sleep(0.75)
+#初始化
+
 def log (mode,a = None):#日志系统
     o = os.open('logs.log',os.O_WRONLY|os.O_CREAT)
     os.close(o)
@@ -82,17 +59,17 @@ def Pass ():#密码系统
         while i == 0:
             s = open('pass.ini','r+')
             o = next(s)
-            if(o == input('密码:\033[41;101m\033[?25l')):
+            if(o == input('密码:')):
                 i = 1
             else:
-                print('\033[0m\033[?25h密码错误❌！！！')
-        print('\033[0m\033[?25h密码正确✔️！！！')
+                print('密码错误❌！！！')
+        print('密码正确✔️！！！')
         s.close()
     else:
         s = os.open('pass.ini',os.O_RDWR|os.O_CREAT)
-        o = input('密码:\033[41;101m\033[?25l')
+        o = input('密码:')
         o = os.write(s,bytes(o,'UTF-8'))
-        print('\033[0m\033[?25h成功！！！')
+        print('成功！！！')
         os.close(s)
     return(True)
 def Open (Name):#打开文件函数
@@ -283,7 +260,7 @@ def Sys ():#系统配置函数
         print('')
     else:
         o = os.open('sys.ini',os.O_WRONLY|os.O_CREAT)
-        Name = 'FOS' + '\n' + '1.0'
+        Name = 'FOS' + '\n' + '0.2'
         O = os.write(o,bytes('%s' %(Name), 'UTF-8'))
         os.close(o)
         Sys()
@@ -291,11 +268,11 @@ def Sys ():#系统配置函数
     a = Name = next(o)
     a = r'%s' %(a)
     i = Name = next(o)
-    if(i != '1.0' or a != 'FOS'):
+    if(i != '0.2' or a != 'FOS'):
         os.remove('sys.ini')
         o.close
         o = os.open('sys.ini',os.O_WRONLY|os.O_CREAT)
-        Name = 'FOS' + '\n' + '1.0'
+        Name = 'FOS' + '\n' + '0.2'
         O = os.write(o,bytes('%s' %(Name), 'UTF-8'))
         os.close(o)
 def Rn ():#重命名函数
@@ -477,7 +454,7 @@ def jsq (m):#计算器函数
             ';':na//nb,'|':na//nb,'//':na**(1/nb)}
         d = n.get(m)
         return(d)
-def mong (a,zx=False):#FOS图片格式
+def mong (a):#FOS图片格式
     if('.mong' in a):
         try:
             a = open('%s'%(a),'r')
@@ -490,51 +467,46 @@ def mong (a,zx=False):#FOS图片格式
             b = ''
         except TypeError:
             b = ''
-        if(zx == True):
-            print('\033[2J'*16,end='')
         c = 0
         for c in b:
             if(c == '0'):
-                print('\033[0m..',end='')
-            elif(c == '1'):
-                print('\033[47m  ',end='')
-            elif(c == '2'):
-                print('\033[107m  ',end='')
-            elif(c == '3'):
-                print('\033[41m  ',end='')
-            elif(c == '4'):
-                print('\033[101m  ',end='')
-            elif(c == '5'):
-                print('\033[43m  ',end='')
-            elif(c == '6'):
-                print('\033[103m  ',end='')
-            elif(c == '7'):
-                print('\033[42m  ',end='')
-            elif(c == '8'):
-                print('\033[102m  ',end='')
-            elif(c == '9'):
-                print('\033[46m  ',end='')
-            elif(c == 'A'):
-                print('\033[106m  ',end='')
-            elif(c == 'B'):
-                print('\033[44m  ',end='')
-            elif(c == 'C'):
-                print('\033[104m  ',end='')
-            elif(c == 'D'):
-                print('\033[45m  ',end='')
-            elif(c == 'E'):
-                print('\033[105m  ',end='')
-            elif(c == 'F'):
-                print('\033[40m  ',end='')
-            elif(c == 'G'):
-                print('\033[100m  ',end='')
-            elif(c == '.'):
+                print('\033[0m□',end='')
+            if(c == '1'):
+                print('\033[37m■',end='')
+            if(c == '2'):
+                print('\033[97m■',end='')
+            if(c == '3'):
+                print('\033[31m■',end='')
+            if(c == '4'):
+                print('\033[91m■',end='')
+            if(c == '5'):
+                print('\033[33m■',end='')
+            if(c == '6'):
+                print('\033[93m■',end='')
+            if(c == '7'):
+                print('\033[32m■',end='')
+            if(c == '8'):
+                print('\033[92m■',end='')
+            if(c == '9'):
+                print('\033[36m■',end='')
+            if(c == 'a'):
+                print('\033[96m■',end='')
+            if(c == 'b'):
+                print('\033[34m■',end='')
+            if(c == 'c'):
+                print('\033[94m■',end='')
+            if(c == 'd'):
+                print('\033[35m■',end='')
+            if(c == 'e'):
+                print('\033[95m■',end='')
+            if(c == 'f'):
+                print('\033[30m■',end='')
+            if(c == 'g'):
+                print('\033[90m■',end='')
+            if(c == ':'):
                 print()
-            elif(c == ','):
-                print('  ',end='')
-            else:
-                pass
-            print('\033[0m',end='')
+            if(c == ' '):
+                print(' ',end='')                
         print('\033[0m')
         try:
             a.close()
@@ -583,8 +555,17 @@ def FY (path_a='Dw.dw',path_b='Yw.yw'):#译码器
     except:
         return None
 #函数配置
+
+p.hi()
+A = 0
+b = 0
+i = 0
 mong('test.mong')
 mong('help.mong')
+VAR = None
+LIS = {}
+i = 0
+y=[]
 time.sleep(0.1)
 Sys()
 Pass()
@@ -596,24 +577,21 @@ p.Help()
 time.sleep(0.5)
 log('sign',time.asctime())
 Cal()
+A = Open_Creat('mc.mong')
+Write(A,'33333333:77777777:77777777:77777777')
+Close(A)
 #变量配置
+#主程序:
 while b == 0 :
-    try:
-        h = '[Fos0_2.py:' + f + ']' + os.getcwd()
-    except:
-        b = 1
-        print('请重启')
-    try:
-        c = input('\033[36m%s\033[33m>>>\033[0m' %(h))
-    except:
-        c = None
+    h = '[Fos0_2.py:' + f + ']' + os.getcwd()
+    c = input('\033[36m%s\033[33m>>>\033[0m' %(h))
     if(c == 'Help' or c == 'help'):
         p.Help()
     elif(c=='Ymq' or c=='Decode'):
         print(FY(input('密文文件名：'),input('母版文件名：')))
     elif(c == 'Exit' or c == 'exit'):
         b = 1
-    elif(c == 'xtree' or c == 'xTree'):
+    elif(c == 'tree -0' or c == 'Tree'):
         k = os.getcwd()
         print('当前目录:',k)
         print('\n'*2,k)
@@ -739,7 +717,7 @@ while b == 0 :
         print(Oct(input('数:'),input('(十进制转八进制(0)十八进制转十进制(1))\n输入:')))
     elif(c == 'bin' or c == 'Bin'):
         print(Bin(input('数:'),input('(十进制转十二进制(0)二进制转十进制(1))\n输入:')))
-    elif(c == 'try' or c == 'Try'):
+    elif(c == 'try' or c == 'tree -1'):
         input('\033[32m')
         k = os.getcwd()
         treea(0)
@@ -767,11 +745,6 @@ while b == 0 :
         for k in glob.glob('*.mong'):
             print(k)
         mong(input('文件名:'))
-    elif(c == 'xmong' or c == 'xMong'):
-        for k in glob.glob('*.mong'):
-            print(k)
-        mong(input('\033[91m以专心模式查看图片\033[0m\n文件名:'),
-            True)
     elif(c == 'word' or c == 'Word'):
         word(input('按,分割:').split(','))
     elif(c == 'fosw' or c == 'Fosw'):
@@ -789,7 +762,7 @@ while b == 0 :
         pass
     else:
         print('    0not   Function not\n   %s <<<\n  Help' % (c))
-#主程序
+#退出
 Sys()
 print(random.randint(0,1))
 print()
@@ -802,4 +775,5 @@ k.write('}\n')
 time.sleep(0.5)
 sys.exit()
 exit()
-#退出
+#完。。。
+pass
