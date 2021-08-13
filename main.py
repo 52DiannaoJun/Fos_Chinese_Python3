@@ -1,14 +1,21 @@
 # !/usr/bin/env python
 #coding = utf-8
-import os
-import sys
-import time
-import math
-import datetime
-import stat
-import glob
-import calendar
-import p
+try:
+    import os
+    import sys
+    import time
+    import math
+    import datetime
+    import stat
+    import glob
+    import calendar
+    import xlwt
+    import mods
+    import exp as p
+except:
+    print('You need os, sys, time, math, datetime, stat, glod, calendar and xlwt modules.')
+    print('Or,Your mods and exp modules are lost (which means you may have downloaded pirated software)')
+    exit()
 #导入模块
 
 print(os.getcwd())
