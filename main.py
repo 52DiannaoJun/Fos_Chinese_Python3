@@ -12,6 +12,7 @@ try:
     import xlwt
     import mods
     import exp as p
+    import mod
 except:
     print('You need os, sys, time, math, datetime, stat, glod, calendar and xlwt modules.')
     print('Or,Your mods and exp modules are lost (which means you may have downloaded pirated software)')
@@ -358,15 +359,15 @@ def tree (l):#返回目录文件函数
     k = 0
     g = glob.glob('*')
     for k in g:
-        a = '￣'*(l//3)
-        a = a + '—'*((l%3)//2)
-        a = a + '＿'*(((l%3)%2)//1)
+        a = '~'*(l//3)
+        a = a + '-'*((l%3)//2)
+        a = a + '_'*(((l%3)%2)//1)
         a = a+k
         if(os.path.isfile('%s'%(k))):
             print(a)
         elif(os.path.isdir('%s'%(k))):
             if(k == 'system'):
-                print('pp')
+                print('pp'h)
             else:
                 a = a+'-(文件夹):'
                 print(a)
